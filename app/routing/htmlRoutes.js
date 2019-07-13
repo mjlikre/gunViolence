@@ -1,10 +1,11 @@
 var path = require("path");
+var express = require("express");
 
 module.exports = function(app) {
-	// Displays map page if user has map in URL or if the user clicks the map button
-	app.get("/map", function(req, res) {
-		res.sendFile(path.join(__dirname, "/../public/map.html"));
-	});
+	// Displays incidents page when user clicks on an incident
+	// app.get("/incidents", function(req, res) {
+	// 	res.sendFile(path.join(__dirname, "/../public/incidents.html"));
+	// });
 
 	// Displays home page by default
 	app.use(function(req, res) {

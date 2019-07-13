@@ -1,13 +1,26 @@
-var mysql = require('mysql');
+// Attach an asynchronous callback to read the data at our posts reference
 var admin = require('firebase-admin');
-var serviceAccount = require("path/to/serviceAccountKey.json");
+var serviceAccount = require("./gun-violence-f2f2b-firebase-adminsdk-s9n3m-ae6d5e0b93.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://gun-violence-f2f2b.firebaseio.com"
 });
+var db = admin.database();
+var ref = db.ref();
+ref.on("value", function (snapshot) {
+  snapshot.forEach(function (data) {
+    // var lat = data.val().latitude;
+    // var long = data.val().longitude;
+    //console.log("lat: " + lat + " long: " + long);
+    return data;
+  });
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
 
-// var connection
+
+// var connection;
 // if (process.env.JAWSDB_URL) {
 //     connection = mysql.createConnection(process.env.JAWSDB_URL)
 // } else {
@@ -18,7 +31,7 @@ admin.initializeApp({
 //         password: 'password',
 //         database: 'guns'
 //     });
-    
+//
 // }
 // connection.connect(function(err) {
 //     if (err) {
@@ -29,9 +42,5 @@ admin.initializeApp({
 // });
 
 
-
-
-
-
-module.exports = connection;
+// module.exports = connection;
 

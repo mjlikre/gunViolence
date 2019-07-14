@@ -5,9 +5,9 @@ var app = express();
 
 module.exports = function(app) {
 	// Displays incidents page when user clicks on an incident
-	// app.get("/incidents", function(req, res) {
-	// 	res.sendFile(path.join(__dirname, "/../public/incidents.html"));
-	// });
+	app.get("/incident", function(req, res) {
+		res.sendFile(path.join(__dirname, "/../public/incident.html"));
+	});
 
 	// Displays home page by default
 	app.get('/',(req,res) =>{

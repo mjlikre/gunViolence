@@ -117,8 +117,7 @@ var map = L.map('map').setView([37.8, -96], 4);
   // }).addTo(map);
 
   //how to get make makers
-  db = getDB();
-  console.log(db.val().latitude);
+
 
 
   var legend = L.control({position: 'bottomright'});

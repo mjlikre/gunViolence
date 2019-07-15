@@ -138,6 +138,14 @@
   <!-- Custom JavaScript -->
   <script src="http://localhost:3000/js/scrolling-nav.js"></script>
 
+  <script>
+    $(document).ready(function(){
+      $.get('/api/data', data=>{
+        console.log(data)
+      })
+    })
+  </script>
+
 </body>
 
 </html>

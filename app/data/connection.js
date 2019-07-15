@@ -7,19 +7,19 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://gun-violence-f2f2b.firebaseio.com"
 });
-var db = admin.database();
-var ref = db.ref();
-ref.on("value", function (snapshot) {
-  snapshot.forEach(function (data) {
-    // var lat = data.val().latitude;
-    // var long = data.val().longitude;
-    //console.log("lat: " + lat + " long: " + long);
-    return data;
-  });
-  console.log(snapshot)
-}, function (errorObject) {
-  console.log("The read failed: " + errorObject.code);
-});
+// var db = admin.database();
+// var ref = db.ref();
+// ref.on("value", function (snapshot) {
+//   snapshot.forEach(function (data) {
+//     // var lat = data.val().latitude;
+//     // var long = data.val().longitude;
+//     //console.log("lat: " + lat + " long: " + long);
+//     return data;
+//   });
+//   console.log(snapshot)
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+// });
 
 module.exports = admin;
 

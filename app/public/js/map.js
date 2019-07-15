@@ -5,7 +5,6 @@ var map = L.map('map').setView([37.8, -96], 4);
     id: 'mapbox.light'
   }).addTo(map);
 
-
   // control that shows state info on hover
   var info = L.control();
 

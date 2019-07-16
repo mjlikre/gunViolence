@@ -111,37 +111,29 @@ $(document).ready(()=>{
     }).addTo(map);
   });
 
-  // geojson = L.geoJson(statesData, {
-  //   style: style,
-  //   onEachFeature: onEachFeature
-  // }).addTo(map);
-
-  //how to get make makers
 
 
-
-  var legend = L.control({position: 'bottomright'});
-
-  legend.onAdd = function (map) {
-
-    var div = L.DomUtil.create('div', 'info legend'),
-      grades = [0, 10, 20, 50, 100, 200, 500, 1000],
-      labels = [],
-      from, to;
-
-    for (var i = 0; i < grades.length; i++) {
-      from = grades[i];
-      to = grades[i + 1];
-
-      labels.push(
-        '<i style="background:' + getColor(from + 1) + '"></i> ' +
-        from + (to ? '&ndash;' + to : '+'));
+  $.get('/api/data', data=>{
+    const showIncidents = [];
+    var incidentsNum = 0;
+    var incidentsMax = incidentsNum+25;
+    for(var i = incidentsNum; i < incidentsMax; i ++){
+      showIncidents.push(data[i]);
     }
+    showData(showIncidents);
 
-    div.innerHTML = labels.join('<br>');
-    return div;
-  };
-
-  legend.addTo(map);
+  })
+  const showData = showIncidents=>{
+    for(var k = 0; k < showIncidents.length; k ++){
+      var nO = $('<p>');
+      var link = $(`<a href="${showIncidents[k].incident_url}">Link Here</a>`);
+      nO.attr('id', 'incidents');
+      nO.text(`${showIncidents[k].incident_id} : ${showIncidents[k].city_or_county}, ${showIncidents[k].state}; ${showIncidents[k].n_killed} killed, ${showIncidents[k].n_injured} injured`);
+      nO.append(link);
+      
+      $('.incidentsContainer').append(nO);
+      var marker = L.marker([showIncidents[k].latitude, showIncidents[k].longitude]).addTo(map);
+    }
+  }
 
 });

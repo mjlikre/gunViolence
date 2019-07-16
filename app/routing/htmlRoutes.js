@@ -14,7 +14,4 @@ module.exports = function(app) {
 		res.sendFile(path.join(__dirname, "/../public/home.html"))
 	})
 
-	app.get('/map', (req, res)=>{
-		res.sendFile(path.join(__dirname, '/../public/map.html'))
-	})
 };

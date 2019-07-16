@@ -84,7 +84,7 @@ $(document).ready(()=>{
   }
 
   //console.log(statesData.features[0].properties.density);
-  d3.csv("http://localhost:3000/data/data.csv", function(data) {
+  d3.csv("../../data/data.csv", function(data) {
     var dataArray = [];
     for (var d = 0; d < data.length; d++) {
       // Grab State Name
@@ -116,7 +116,7 @@ $(document).ready(()=>{
   $.get('/api/data', data=>{
     const showIncidents = [];
     var incidentsNum = 0;
-    var incidentsMax = incidentsNum+25;
+    var incidentsMax = incidentsNum+50;
     for(var i = incidentsNum; i < incidentsMax; i ++){
       showIncidents.push(data[i]);
     }

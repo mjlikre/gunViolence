@@ -93,7 +93,7 @@
   <section id="incidents">
     <div class="incidentsContainer">
       <h2 class="mx-5">Incidents</h2>
-      <p class="mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam possimus mollitia perferendis
+      <!-- <p class="mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam possimus mollitia perferendis
         placeat
         consequatur eius facere sed ratione sunt fugit doloribus eveniet nesciunt, sapiente, accusantium tempore saepe
         accusamus ipsa quod?<a href="/incident">Example Link</a></p>
@@ -113,7 +113,7 @@
         placeat
         consequatur eius facere sed ratione sunt fugit doloribus eveniet nesciunt, sapiente, accusantium tempore saepe
         accusamus ipsa quod?<a href="/incident">Example Link</a></p>
-    </div>
+    </div> -->
   </section>
 
   <!-- Footer -->
@@ -141,8 +141,26 @@
   <script>
     $(document).ready(function(){
       $.get('/api/data', data=>{
-        console.log(data)
+        const showIncidents = [];
+        var incidentsNum = 0;
+        var incidentsMax = incidentsNum+25;
+        for(var i = incidentsNum; i < incidentsMax; i ++){
+          showIncidents.push(data[i]);
+        }
+        showData(showIncidents);
+
       })
+      const showData = showIncidents=>{
+        for(var k = 0; k < showIncidents.length; k ++){
+          var nO = $('<p>');
+          var link = $(`<a href="${showIncidents[k].incident_url}">Link Here</a>`);
+          nO.attr('id', 'incidents');
+          nO.text(`${showIncidents[k].incident_id} : ${showIncidents[k].city_or_county}, ${showIncidents[k].state}; ${showIncidents[k].n_killed} killed, ${showIncidents[k].n_injured} injured`);
+          nO.append(link);
+          
+          $('.incidentsContainer').append(nO);
+        }
+      }
     })
   </script>
 

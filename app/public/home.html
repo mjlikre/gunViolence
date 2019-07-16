@@ -122,18 +122,19 @@
       //   var incidentsNum = 0;
       //   var incidentsMax = incidentsNum+25;
       //   for(var i = incidentsNum; i < incidentsMax; i ++){
-      //     showIncidents.push(data[i]);
-      //   }
-      //   showData(showIncidents);
+          showIncidents.push(data[i]);
+        }
+        showData(showIncidents);
 
-      // })
-      // const showData = showIncidents=>{
-      //   for(var k = 0; k < showIncidents.length; k ++){
-      //     var nO = $('<p>');
-      //     var link = $(`<a href="${showIncidents[k].incident_url}">Link Here</a>`);
-      //     nO.attr('id', 'incidents');
-      //     nO.text(`${showIncidents[k].incident_id} : ${showIncidents[k].city_or_county}, ${showIncidents[k].state}; ${showIncidents[k].n_killed} killed, ${showIncidents[k].n_injured} injured`);
-      //     nO.append(link);
+      })
+
+      const showData = showIncidents=>{
+        for(var k = 0; k < showIncidents.length; k ++){
+          var nO = $('<p>');
+          var link = $(`<a href="${showIncidents[k].incident_url}">Click for details on incident</a>`);
+          nO.attr('id', 'incidents');
+          nO.text(`Incident id #${showIncidents[k].incident_id}: ${showIncidents[k].city_or_county}, ${showIncidents[k].state}; ${showIncidents[k].n_killed} killed, ${showIncidents[k].n_injured} injured `);
+          nO.append(link);
           
       //     $('.incidentsContainer').append(nO);
       //     var marker = L.marker([showIncidents[k].latitude, showIncidents[k].longitude]).addTo(marker);

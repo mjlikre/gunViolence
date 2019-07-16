@@ -37,7 +37,7 @@ h2 {
 }
 
 .incidentsContainer {
-  text-align: left;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.42);
   border: 5px solid rgba(194, 194, 194, 0.2);
 }

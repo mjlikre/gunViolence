@@ -1,4 +1,5 @@
-var map = L.map('map').setView([37.8, -96], 4);
+$(document).ready(()=>{
+  var map = L.map('map').setView([37.8, -96], 4);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic2hpaHdlc2xleSIsImEiOiJjanh6azFlM2gwM3Q2M2JsYngzcTRrNTl6In0.LLN1sbJdZtmpOIZmWxGyfQ', {
     maxZoom: 18,
@@ -142,3 +143,5 @@ var map = L.map('map').setView([37.8, -96], 4);
   };
 
   legend.addTo(map);
+
+});

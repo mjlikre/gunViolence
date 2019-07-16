@@ -15,11 +15,11 @@ h2 {
 }
 
 .headerBG {
-  background: url('http://localhost:3000/images/headerIMG.jpg') no-repeat center center;
+  background: url('../images/headerIMG.jpg') no-repeat center center;
 }
 
 .footerBG {
-  background: url('http://localhost:3000/images/footerIMG.jpg') no-repeat center center;
+  background: url('../images/footerIMG.jpg') no-repeat center center;
   background-position-y: -175px;
 }
 

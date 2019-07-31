@@ -115,13 +115,13 @@
   <script src="./js/scrolling-nav.js"></script>
   <script src="./js/map.js"></script>
 
-  <!-- <script>
+  <script>
     $(document).ready(function(){
-      // $.get('/api/data', data=>{
-      //   const showIncidents = [];
-      //   var incidentsNum = 0;
-      //   var incidentsMax = incidentsNum+25;
-      //   for(var i = incidentsNum; i < incidentsMax; i ++){
+      $.get('/api/data', data=>{
+        const showIncidents = [];
+        var incidentsNum = 0;
+        var incidentsMax = incidentsNum+25;
+        for(var i = incidentsNum; i < incidentsMax; i ++){
           showIncidents.push(data[i]);
         }
         showData(showIncidents);
@@ -136,12 +136,12 @@
           nO.text(`Incident id #${showIncidents[k].incident_id}: ${showIncidents[k].city_or_county}, ${showIncidents[k].state}; ${showIncidents[k].n_killed} killed, ${showIncidents[k].n_injured} injured `);
           nO.append(link);
           
-      //     $('.incidentsContainer').append(nO);
-      //     var marker = L.marker([showIncidents[k].latitude, showIncidents[k].longitude]).addTo(marker);
-      //   }
-      // }
+          $('.incidentsContainer').append(nO);
+          var marker = L.marker([showIncidents[k].latitude, showIncidents[k].longitude]).addTo(marker);
+        }
+      }
     })
-  </script> -->
+  </script>
 
 </body>
 

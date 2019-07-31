@@ -1,30 +1,12 @@
-const mysql = require('mysql');
+const mongoose = require('mongoose');
+const mongoDB = require('../../config/keys').mongoURI;
 
-var connection 
-if (process.env.JAWSDB_URL) {
-    connection = mysql.createConnection(process.env.JAWSDB_URL)
-} else {
-    connection = mysql.createConnection({
-        host: 'localhost',
-        port: '3306',
-        user: 'root',
-        password: 'password',
-        database: 'db'
-    });
-    
-}
-connection.connect(function(err) {
-    if (err) {
-      console.error("error connecting: " + err.stack);
-      return;
-    }
-    console.log("connected as id " + connection.threadId);
-  });
+// Connect to Mongo
+mongoose
+  .connect(mongoDB, { useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err));
 
-
+var connection = mongoose.connection;
 
 module.exports = connection;
-
-
-
-

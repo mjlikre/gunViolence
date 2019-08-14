@@ -11,8 +11,12 @@
   <!-- Styles -->
   <link href="./css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
 
 
   <!-- Leaflet Styles -->
@@ -103,39 +107,39 @@
   <!-- Map Javascript -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/topojson.v1.min.js"></script>
-  
+
   <!-- Bootstrap JavaScript -->
   <script src="./js/jquery.min.js"></script>
   <script src="./js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- Plugin JavaScript -->
   <script src="./js/jquery.easing.min.js"></script>
-  
+
   <!-- Custom JavaScript -->
   <script src="./js/scrolling-nav.js"></script>
   <script src="./js/map.js"></script>
 
   <script>
-    $(document).ready(function(){
-      $.get('/api/data', data=>{
+    $(document).ready(function () {
+      $.get('/', data => {
         const showIncidents = [];
         var incidentsNum = 0;
-        var incidentsMax = incidentsNum+25;
-        for(var i = incidentsNum; i < incidentsMax; i ++){
+        var incidentsMax = incidentsNum + 25;
+        for (var i = incidentsNum; i < incidentsMax; i++) {
           showIncidents.push(data[i]);
         }
         showData(showIncidents);
 
       })
 
-      const showData = showIncidents=>{
-        for(var k = 0; k < showIncidents.length; k ++){
+      const showData = showIncidents => {
+        for (var k = 0; k < showIncidents.length; k++) {
           var nO = $('<p>');
           var link = $(`<a href="${showIncidents[k].incident_url}">Click for details on incident</a>`);
           nO.attr('id', 'incidents');
           nO.text(`Incident id #${showIncidents[k].incident_id}: ${showIncidents[k].city_or_county}, ${showIncidents[k].state}; ${showIncidents[k].n_killed} killed, ${showIncidents[k].n_injured} injured `);
           nO.append(link);
-          
+
           $('.incidentsContainer').append(nO);
           var marker = L.marker([showIncidents[k].latitude, showIncidents[k].longitude]).addTo(marker);
         }

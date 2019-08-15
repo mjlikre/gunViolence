@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const db = require("../../models");
 
+console.log('db:',db);
 // GET /api/incidents/test - go here to test if we get a response
 router.get("/test", (req, res) => {
     res.json({ test: "/api/incidents/test" });

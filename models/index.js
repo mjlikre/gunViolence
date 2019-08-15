@@ -1,6 +1,7 @@
 "use strict";
+const mongoDB = require('../config/keys').mongoURI;
 
 module.exports = {
-    MONGODB_URI: "mongodb://birna:password123@ds263307.mlab.com:63307/heroku_whxcgd24" || "mongodb://localhost/lakeScrape",
+    MONGODB_URI: mongoDB,
     Incident: require("./Incident")
 };

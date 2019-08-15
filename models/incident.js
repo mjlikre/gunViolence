@@ -1,15 +1,54 @@
+"use strict";
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const IncidentSchema = new Schema({
-    incident_id: Number,
-    state: String,
-    city_or_county: String,
-    n_killed: Number,
-    n_injured: Number,
-    incident_url: String,
-    longitude: Number,
-    latitude: Number
+    incident_id: {
+        type: Number,
+        unique: true,
+        default: 0
+    },
+
+    state: {
+        type: String,
+        reqiored: true
+    },
+
+    city_or_county: {
+        type: String,
+        required: false
+    },
+
+    n_killed: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+
+    n_injured: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+
+    incident_url: {
+        type: String,
+        required: false,
+        default: null
+    },
+
+    longitude: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+
+    latitude: {
+        type: Number,
+        required: false,
+        default: 0
+    }
 });
 
 const Incident = mongoose.model("Incident", IncidentSchema);

@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require('express');
 const path = require("path");
 const router = express.Router();
@@ -23,7 +25,7 @@ router.get("/test", (req, res) => {
 
 // GET route for all incidents
 router.get("/", (req, res) => {
-	db.Incident.find({}).sort({ incident_id: -1 })
+	db.Incident.find({})
 		.then(result => {
 			console.log(`Incident count: ${result.length}`);
 			res.render("index", { incident: result });
